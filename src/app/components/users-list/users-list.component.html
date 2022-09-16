@@ -1,0 +1,14 @@
+<h1>Users List</h1>
+
+<h1 *ngIf="users.length === 0">No users found</h1>
+
+<button (click)="toggleShowUsers()">
+  {{ showUsers ? "Hide" : "Show" }} List
+</button>
+<button (click)="notify.emit()">Notify</button>
+
+<div *ngIf="showUsers">
+  <p *ngFor="let user of users">
+    {{ user.username }}
+  </p>
+</div>
