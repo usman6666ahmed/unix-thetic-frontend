@@ -4,7 +4,6 @@ import { User } from 'src/types';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   title = 'unix-thetic-frontend';
@@ -14,8 +13,4 @@ export class AppComponent {
     {id: 3, username: 'Jane'},
     {id: 4, username: 'Doe'},
   ]
-
-  onNotify(){
-    alert("Notified")
-  }
 }

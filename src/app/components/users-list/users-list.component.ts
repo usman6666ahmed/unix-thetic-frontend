@@ -4,13 +4,11 @@ import { User } from 'src/types';
 @Component({
   selector: 'app-users-list',
   templateUrl: './users-list.component.html',
-  styleUrls: ['./users-list.component.css']
 })
 export class UsersListComponent implements OnInit {
   constructor() { }
 
   @Input() users!: User[];
-  @Output() notify = new  EventEmitter();
 
 
   showUsers = true
