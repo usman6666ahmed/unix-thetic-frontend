@@ -1,4 +1,16 @@
-<h1>Login Page</h1>
-<a
-  [routerLink]="['']"
->Back</a>
+<div class="space-y-10">
+  <h1 class="text-9xl">Login</h1>
+  <a class="btn btn-primary btn-lg" [routerLink]="['']">Back</a>
+
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <label class="label label-text" for="username">username</label>
+    <input
+      class="input input-primary"
+      type="text"
+      name="username"
+      id="username"
+      formControlName="username"
+    />
+    <button class="btn btn-secondary ml-5" type="submit">Login</button>
+  </form>
+</div>
