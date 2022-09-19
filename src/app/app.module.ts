@@ -8,7 +8,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './pages/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './modules/material.module';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
@@ -18,7 +17,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MaterialModule,
   ],
   declarations: [
     AppComponent,

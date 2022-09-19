@@ -1,27 +1,10 @@
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" ngNativeValidate>
-  <mat-form-field appearance="outline">
-    <mat-label>Username</mat-label>
-    <input
-      matInput
-      required
-      placeholder="i.e john_doe_11"
-      formControlName="username"
-      id="username"
-      name="username"
-    />
-  </mat-form-field>
-
-  <mat-form-field appearance="outline">
-    <mat-label>Password</mat-label>
-    <input
-      matInput
-      required
-      type="password"
-      formControlName="password"
-      id="password"
-      name="password"
-    />
-  </mat-form-field>
-
-  <button mat-raised-button color="primary">Login</button>
+<form class="form-control space-y-3">
+  <h1 class="text-6xl">Login</h1>
+  <input class="input input-primary" type="text" />
+  <p class="text-sm text-amber-700 font-bold">This username is already taken</p>
+  <input class="input input-secondary" type="password" />
+  <select id="tech" name="tech" class="select select-primary">
+    <option *ngFor="let tech of techs" [value]="tech">{{ tech }}</option>
+  </select>
+  <button class="btn btn-accent" type="button">Submit</button>
 </form>

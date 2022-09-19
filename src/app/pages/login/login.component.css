@@ -4,3 +4,11 @@
   align-items: flex-start;
 }
 
+.container {
+  display: flex;;
+  margin: 5%;
+}
+
+.container > * {
+  margin: 5%;
+}
