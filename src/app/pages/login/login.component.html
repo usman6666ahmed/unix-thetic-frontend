@@ -1,47 +1,27 @@
-<mat-form-field appearance="fill">
-  <mat-label>Input</mat-label>
-  <input matInput />
-</mat-form-field>
-<mat-form-field appearance="fill">
-  <mat-label>Select</mat-label>
-  <mat-select>
-    <mat-option value="one">First option</mat-option>
-    <mat-option value="two">Second option</mat-option>
-  </mat-select>
-</mat-form-field>
-<mat-form-field appearance="fill">
-  <mat-label>Textarea</mat-label>
-  <textarea matInput></textarea>
-</mat-form-field>
-<button mat-flat-button color="primary">Submit</button>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" ngNativeValidate>
+  <mat-form-field appearance="outline">
+    <mat-label>Username</mat-label>
+    <input
+      matInput
+      required
+      placeholder="i.e john_doe_11"
+      formControlName="username"
+      id="username"
+      name="username"
+    />
+  </mat-form-field>
 
-<mat-slider min="1" max="10"></mat-slider>
+  <mat-form-field appearance="outline">
+    <mat-label>Password</mat-label>
+    <input
+      matInput
+      required
+      type="password"
+      formControlName="password"
+      id="password"
+      name="password"
+    />
+  </mat-form-field>
 
-<!-- <div> -->
-<!--   <h1>Login</h1> -->
-<!--   <a>Back</a> -->
-
-<!--   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()"> -->
-<!--     <input -->
-<!--       placeholder="Username" -->
-<!--       type="text" -->
-<!--       name="username" -->
-<!--       id="username" -->
-<!--       formControlName="username" -->
-<!--       required="true" -->
-<!--       minlength="3" -->
-<!--       maxlength="20" -->
-<!--     /> -->
-<!--     <input -->
-<!--       placeholder="Password" -->
-<!--       type="password" -->
-<!--       name="password" -->
-<!--       id="password" -->
-<!--       formControlName="password" -->
-<!--       required="true" -->
-<!--       minlength="2" -->
-<!--     /> -->
-<!--     <button class="btn btn-secondary w-fit" type="submit">Register</button> -->
-<!--   </form> -->
-<!--   <h1 *ngFor="let user of users">{{ user.username }}</h1> -->
-<!-- </div> -->
+  <button mat-raised-button color="primary">Login</button>
+</form>

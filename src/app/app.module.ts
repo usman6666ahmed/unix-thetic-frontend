@@ -9,6 +9,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './modules/material.module';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   imports: [
@@ -24,6 +25,7 @@ import { MaterialModule } from './modules/material.module';
     UsersListComponent,
     LoginComponent,
     HomeComponent,
+    NavbarComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
