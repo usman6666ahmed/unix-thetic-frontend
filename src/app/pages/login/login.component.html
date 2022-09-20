@@ -1,10 +1,52 @@
-<form class="form-control space-y-3">
+<form
+  class="form-control space-y-5 w-2/3 mx-auto pt-10"
+  [formGroup]="loginForm"
+  (submit)="onSubmit()"
+>
   <h1 class="text-6xl">Login</h1>
-  <input class="input input-primary" type="text" />
-  <p class="text-sm text-amber-700 font-bold">This username is already taken</p>
-  <input class="input input-secondary" type="password" />
-  <select id="tech" name="tech" class="select select-primary">
-    <option *ngFor="let tech of techs" [value]="tech">{{ tech }}</option>
-  </select>
-  <button class="btn btn-accent" type="button">Submit</button>
+
+  <input
+    name="username"
+    class="input input-primary"
+    type="text"
+    formControlName="username"
+  />
+  <div
+    *ngIf="username.invalid && username.touched"
+    class="text-sm text-amber-700"
+  >
+    <p *ngIf="username.errors?.['minlength']">
+      Username must be atleast 3 characters long
+    </p>
+    <p *ngIf="username.errors?.maxlength">
+      Username must be atmost 20 characters long
+    </p>
+    <p *ngIf="username.errors?.['required']">Username is required</p>
+  </div>
+
+  <input
+    class="input input-secondary"
+    type="password"
+    formControlName="password"
+  />
+
+  <div
+    *ngIf="password.invalid && password.touched"
+    class="text-sm text-amber-700"
+  >
+    <p>Password is invalid</p>
+  </div>
+
+  <button
+    [ngClass]="[
+      'w-fit',
+      'btn',
+      loginForm.valid ? 'btn-primary' : 'btn-disabled',
+      'mx-auto',
+      'btn-lg'
+    ]"
+    type="submit"
+  >
+    Login
+  </button>
 </form>

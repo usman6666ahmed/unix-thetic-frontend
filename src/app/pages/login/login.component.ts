@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { FormBuilder, FormControl } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -7,24 +7,51 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   private apiUrl = 'https://localhost:3001';
+  loginForm: any;
 
   constructor(
     private formBuilder: FormBuilder,
     private httpClient: HttpClient
   ) {}
 
-  loginForm = this.formBuilder.group({
-    username: 'user',
-    password: '123123',
-  });
+  loginFormData: any = {
+    username: '',
+    password: '',
+  };
 
-  techs = [
-    'Angular',
-    'React',
-    'Vue',
-  ];
+  ngOnInit() {
+    this.loginForm = this.formBuilder.group({
+      username: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(20),
+        ],
+      ],
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(6),
+        ],
+      ],
+    });
+
+    this.loginForm.valueChanges.subscribe((data: any) => {
+      this.loginFormData = data;
+    });
+  }
+
+  get username() {
+    return this.loginForm.get('username');
+  }
+
+  get password() {
+    return this.loginForm.get('password');
+  }
 
   async onSubmit() {
     const url = `${this.apiUrl}/auth/register`;
