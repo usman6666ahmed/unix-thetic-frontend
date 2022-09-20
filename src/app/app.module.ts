@@ -9,6 +9,10 @@ import { HomeComponent } from './pages/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { RegisterComponent } from './pages/register/register.component';
+const components = [UsersListComponent, NavbarComponent];
+
+const pages = [LoginComponent, HomeComponent, RegisterComponent];
 
 @NgModule({
   imports: [
@@ -18,13 +22,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     HttpClientModule,
     BrowserAnimationsModule,
   ],
-  declarations: [
-    AppComponent,
-    UsersListComponent,
-    LoginComponent,
-    HomeComponent,
-    NavbarComponent,
-  ],
+  declarations: [AppComponent, ...components, ...pages],
   providers: [],
   bootstrap: [AppComponent],
 })
