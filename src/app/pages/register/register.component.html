@@ -1,1 +1,66 @@
-<p>register works!</p>
+<h1 class="text-6xl">Register</h1>
+<form
+  class="form-control space-y-3 w-1/2 grid mx-auto"
+  [formGroup]="registerForm"
+>
+  <label for="username">Username</label>
+  <input
+    class="input input-primary"
+    type="text"
+    id="username"
+    name="username"
+    formControlName="username"
+  />
+  <div
+    *ngIf="username.invalid && username.touched"
+    class="text-sm text-amber-700"
+  >
+    <p *ngIf="username.errors?.['minlength']">
+      Username must be atleast 3 characters long
+    </p>
+    <p *ngIf="username.errors?.maxlength">
+      Username must be atmost 20 characters long
+    </p>
+    <p *ngIf="username.errors?.['required']">Username is required</p>
+  </div>
+
+  <label for="email">Email</label>
+  <input
+    class="input input-primary"
+    type="email"
+    id="email"
+    name="email"
+    formControlName="email"
+  />
+  <div *ngIf="email.invalid && email.touched" class="text-sm text-amber-700">
+    <p *ngIf="email.errors?.['required']">Email is required</p>
+    <p *ngIf="email.errors?.['email']">Email is invalid</p>
+  </div>
+
+  <label for="password">Password</label>
+  <input
+    class="input input-primary"
+    type="password"
+    id="password"
+    name="password"
+    formControlName="password"
+  />
+  <div
+    *ngIf="password.invalid && password.touched"
+    class="text-sm text-amber-700"
+  >
+    <p>Password must be atleast 6 characters long</p>
+  </div>
+  <button
+    [ngClass]="[
+      'w-fit',
+      'btn',
+      registerForm.valid ? 'btn-primary' : 'btn-disabled',
+      'mx-auto',
+      'btn-lg'
+    ]"
+    type="submit"
+  >
+  Register
+  </button>
+</form>

@@ -31,13 +31,7 @@ export class LoginComponent implements OnInit {
           Validators.maxLength(20),
         ],
       ],
-      password: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(6),
-        ],
-      ],
+      password: ['', [Validators.required, Validators.minLength(6)]],
     });
 
     this.loginForm.valueChanges.subscribe((data: any) => {
