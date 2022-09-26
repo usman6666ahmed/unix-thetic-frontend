@@ -7,10 +7,4 @@ import { User } from 'src/types';
 })
 export class AppComponent {
   title = 'unix-thetic-frontend';
-   users: User[] = [
-    {id: 1, username: 'John'},
-    {id: 2, username: 'Doe'},
-    {id: 3, username: 'Jane'},
-    {id: 4, username: 'Doe'},
-  ]
 }
