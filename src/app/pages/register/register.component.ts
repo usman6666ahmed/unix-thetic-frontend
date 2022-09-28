@@ -1,3 +1,4 @@
+import { HttpService } from 'src/app/services/http.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 
@@ -6,11 +7,14 @@ import { FormBuilder, Validators } from '@angular/forms';
   templateUrl: './register.component.html',
 })
 export class RegisterComponent implements OnInit {
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private http:HttpService
+    ) {}
   registerForm: any;
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
-      username: [
+      name: [
         '',
         [
           Validators.required,
@@ -23,8 +27,8 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  get username() {
-    return this.registerForm.get('username');
+  get name() {
+    return this.registerForm.get('name');
   }
 
   get email() {
@@ -33,5 +37,12 @@ export class RegisterComponent implements OnInit {
 
   get password() {
     return this.registerForm.get('password');
+  }
+
+  onSubmit(){
+    this.http.create("users", this.registerForm.value)
+    .subscribe(data=>{
+      console.log(data);
+    })
   }
 }

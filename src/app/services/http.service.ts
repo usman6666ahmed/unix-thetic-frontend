@@ -18,4 +18,7 @@ export class HttpService {
   show<T>(resourceType: resource, id: number) {
     return this.http.get<T>(`${this.baseUrl}/${resourceType}/${id}`);
   }
+  create<T>(resourceType:resource, data:any){
+    return this.http.post<T>(`${this.baseUrl}/${resourceType}`, data);
+  }
 }

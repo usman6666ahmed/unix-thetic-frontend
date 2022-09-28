@@ -1,27 +1,28 @@
 <h1 class="text-6xl">Register</h1>
 <form
+  (submit)="onSubmit()"
   class="form-control space-y-3 w-1/2 grid mx-auto"
   [formGroup]="registerForm"
 >
-  <label for="username">Username</label>
+  <label for="name">name</label>
   <input
     class="input input-primary"
     type="text"
-    id="username"
-    name="username"
-    formControlName="username"
+    id="name"
+    name="name"
+    formControlName="name"
   />
   <div
-    *ngIf="username.invalid && username.touched"
+    *ngIf="name.invalid && name.touched"
     class="text-sm text-amber-700"
   >
-    <p *ngIf="username.errors?.['minlength']">
-      Username must be atleast 3 characters long
+    <p *ngIf="name.errors?.['minlength']">
+      name must be atleast 3 characters long
     </p>
-    <p *ngIf="username.errors?.maxlength">
-      Username must be atmost 20 characters long
+    <p *ngIf="name.errors?.maxlength">
+      name must be atmost 20 characters long
     </p>
-    <p *ngIf="username.errors?.['required']">Username is required</p>
+    <p *ngIf="name.errors?.['required']">name is required</p>
   </div>
 
   <label for="email">Email</label>
