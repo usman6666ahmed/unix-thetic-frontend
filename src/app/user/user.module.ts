@@ -1,3 +1,4 @@
+import { TextShortnerPipe } from './../pipes/text-shortner.pipe';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -10,10 +11,11 @@ import { CardComponent } from './card/card.component';
   declarations: [
     ProfileComponent,
     CardComponent,
+    TextShortnerPipe
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
   ],
   exports: [
     ProfileComponent
