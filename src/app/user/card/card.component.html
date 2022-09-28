@@ -1,0 +1,22 @@
+<div *ngIf="user">
+  <div class="card bg-base-100 shadow-xl">
+    <div class="card-body">
+      <h2 class="card-title">{{ user.name }}</h2>
+      <p>{{ user.email }}</p>
+      <div class="card-actions justify-end">
+        <a
+        [routerLink]="['/profile', user.id]"
+        class="btn btn-primary"
+        >Visit</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div *ngIf="!user">
+  <p>Could not load user</p>
+  <pre>
+    {{ user | json }}
+  </pre>
+</div>
