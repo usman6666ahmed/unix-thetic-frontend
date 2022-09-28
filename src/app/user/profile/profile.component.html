@@ -1,1 +1,15 @@
 <h1 class='text-5xl'>User Profile</h1>
+
+<div *ngIf="!loading">
+  <div *ngIf="users.length">
+    <h1 class='mt-5 font-bold text-3xl'>List of users</h1>
+    <div *ngFor="let user of users" class='border-2 p-3 my-5'>
+      <p>{{ user.email }}</p>
+    </div>
+  </div>
+  <div *ngIf="!users.length">
+    <p>No users</p>
+  </div>
+</div>
+
+<div *ngIf="loading" class='text-5xl'>Loading</div>
