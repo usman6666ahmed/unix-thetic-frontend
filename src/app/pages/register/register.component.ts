@@ -5,7 +5,10 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { catchError } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
-import { HttpResponse } from '@angular/common/http';
+
+function randomNumber(min = 1, max = 1000) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
 
 @Component({
   selector: 'app-register',
@@ -24,14 +27,14 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
       username: [
-        'usman',
+        `user${randomNumber()}`,
         [
           Validators.required,
           Validators.minLength(3),
           Validators.maxLength(20),
         ],
       ],
-      email: ['usman@gmail.com', [Validators.required, Validators.email]],
+      email: [`user${randomNumber()}@example.com`, [Validators.required]],
       password: ['123123', [Validators.required, Validators.minLength(6)]],
     });
   }
@@ -60,12 +63,10 @@ export class RegisterComponent implements OnInit {
           return response;
         })
       )
-      .subscribe((res:Response) => {
-        console.log(res);
-        // console.log(res.headers.get('authorization'));
-        const data = (res as any).data
+      .subscribe((res:any) => {
+        const id:number = res.body?.data?.id;
         this.toastr.success('Registered successfully')
-        this.router.navigate(['profile', data?.id])
+        this.router.navigate(['profile', id])
       });
   }
 }

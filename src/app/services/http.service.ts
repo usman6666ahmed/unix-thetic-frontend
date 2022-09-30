@@ -34,7 +34,7 @@ export class HttpService {
       username,
       email,
       password,
-    });
+    }, {observe: 'response'});
   }
 
 }
