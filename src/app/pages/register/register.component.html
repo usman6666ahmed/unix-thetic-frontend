@@ -39,6 +39,12 @@
     name="email"
     formControlName="email"
   />
+  <div *ngIf="errors?.email">
+    <div *ngFor="let err of errors?.email" class="text-sm text-amber-700">
+      Email
+      {{ err }}
+    </div>
+  </div>
   <div *ngIf="email.invalid && email.touched" class="text-sm text-amber-700">
     <p *ngIf="email.errors?.['required']">Email is required</p>
     <p *ngIf="email.errors?.['email']">Email is invalid</p>
@@ -52,6 +58,12 @@
     name="password"
     formControlName="password"
   />
+  <div *ngIf="errors?.password">
+    <div *ngFor="let err of errors?.password" class="text-sm text-amber-700">
+      Password
+      {{ err }}
+    </div>
+  </div>
   <div
     *ngIf="password.invalid && password.touched"
     class="text-sm text-amber-700"

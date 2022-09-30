@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { ToastrModule } from 'ngx-toastr';
 
 const pages = [LoginComponent, HomeComponent, RegisterComponent];
 const components = [NavbarComponent];
@@ -21,7 +22,8 @@ const components = [NavbarComponent];
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    UserModule
+    ToastrModule.forRoot(),
+    UserModule,
   ],
   declarations: [AppComponent, ...components, ...pages],
   providers: [],

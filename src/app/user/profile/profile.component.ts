@@ -32,7 +32,6 @@ export class ProfileComponent implements OnInit{
   ngOnInit() {
     this.fetchUsers();
     this.route.params.subscribe((params) => {
-      console.log(params);
       this.fetchUser(params['id']);
     });
   }
